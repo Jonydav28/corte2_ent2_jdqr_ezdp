@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+class ParkingSystem {
+private:
+    int big;
+    int medium;
+    int small;
+
+public:
+    ParkingSystem(int b, int m, int s) {
+        big = b;
+        medium = m;
+        small = s;
+    }
+
+    bool addCar(int carType) {
+
+        if (carType == 1 && big > 0) {
+            big--;
+            return true;
+        }
+
+        if (carType == 2 && medium > 0) {
+            medium--;
+            return true;
+        }
+
+        if (carType == 3 && small > 0) {
+            small--;
+            return true;
+        }
+
+        return false;
+    }
+};
+
+int main() {
+
+    ParkingSystem parkingSystem(1,1,0);
+
+    cout << parkingSystem.addCar(1) << endl;
+    cout << parkingSystem.addCar(2) << endl;
+    cout << parkingSystem.addCar(3) << endl;
+    cout << parkingSystem.addCar(1) << endl;
+
+    return 0;
+}
